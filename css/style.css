@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    text-decoration: none;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10vh;
+}
+
+.box-login {
+    display: flex;
+    border: 1px solid rgb(138, 137, 137);
+    width: 500px;
+    min-height: 300px;
+    padding: 30px;
+    box-sizing: border-box;
+    flex-direction: column;
+    border-radius: 5px;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.text-regis {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    margin-top: 15px;
+    transition: all 0.5s ease;
+}
+
+.text-regis p {
+    text-align: center;
+    margin: auto;
+}
+
+.text-regis span {
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+    padding-right: min(10vh, 15%);
+}
+
+.text-regis span a {
+    color: black;
+}
+
+.text-regis span a:active {
+    color: #0AB5F2;
+    transition: .5s;
+}
+
+.box-login h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.box-login .input-login {
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    border: 1px solid #555;
+    outline: none;
+    -webkit-transition: 0.3s;
+    transition: all 0.3s ease;
+}
+
+.box-login .input-regis {
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    border: 1px solid #555;
+    outline: none;
+    -webkit-transition: 0.3s;
+    transition: all 0.3s ease;
+}
+
+.box-login input:focus {
+    background-color: #0ab4f238;
+}
+
+.box-login .btn-submit {
+    cursor: pointer;
+    padding: 10px 15px;
+    width: min(30vh, 30%);
+    border-radius: 5px;
+    border: none;
+    background-color: #26A3F0;
+}
+
+.box-login .btn-submit:active {
+    background-color: #3ca7e9;
+    transition: 0.5s;
+}
+
+.nav-awal {
+    display: flex;
+    background-color: #049DD9;
+    color: white;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    font-size: 150%;
+    align-items: center;
+}
+
+.nav-awal .logo {
+    margin-left: 10%;
+}
+
+nav {
+    display: flex;
+    background-color: #049DD9;
+    color: white;
+    justify-content: space-around;
+    height: 70px;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+}
+
+nav .logo {
+    font-size: 150%;
+    margin-left: 5.25em;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    margin-left: 30%;
+    justify-content: space-between;
+    margin-right: 8em;
+}
+
+nav ul li a {
+    font-size: 110%;
+    color: rgb(247, 247, 247);
+    text-decoration: none;
+    list-style: none;
+}
+
+ul .fa-customize {
+    margin-top: 3px;
+    font-size: 150%;
+    color: white;
+}
+
+a:active {
+    color: rgba(255, 255, 255, 0.3);
+    transition: .5s;
+}
+
+footer {
+    display: flex;
+    background-color: #ffffff;
+    padding: 25px 0;
+    justify-content: space-between;
+}
+
+form p {
+    font-size: 90%;
+    color: rgb(65);
+}
+
+.container-footer {
+    display: flex;
+    /* border: 2px solid yellow; */
+    width: 100%;
+    align-content: space-between;
+    align-items: flex-end;
+    flex-direction: column-reverse;
+}
+
+.container-footer p {
+    color: rgb(0, 0, 0);
+    margin-right: 9.75em;
+}
+
+.section .container-barang {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.section .container-barang:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.box {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    box-sizing: border-box;
+    margin: 10px 0 25px 0;
+}
+
+.section {
+    padding: 100px 0;
+    height: 100vh;
+}
+
+table.tabel {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+    border-spacing: 0;
+}
+
+.tabel th,
+.tabel tr,
+.tabel tr td {
+    border: 1px solid black;
+    border-color: #C6C6C6;
+    text-align: center;
+}
+
+.tabel tr {
+    height: 30px;
+    padding-left: 10px;
+    padding: 10px;
+}
+
+.tabel tr td {
+    padding: 15px 25px;
+}
+
+.tabel tr .nomor-tabel {
+    text-align: center;
+}
+
+.tombol2,
+.tombol3,
+#btn-remove {
+    width: 80px;
+}
+
+.tombol2 {
+    background-color: #17D7A0;
+    margin-right: 1em;
+}
+
+.tombol3 {
+    background-color: #FF5C58;
+}
+
+.tombol2,
+#btn-remove,
+.tombol3 {
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-top: 5px;
+    display: inline-block;
+    text-align: center;
+}
+
+.tombol a,
+.tombol2 a,
+#btn-remove,
+.tombol3 a {
+    text-decoration: none;
+    color: white;
+    margin: 1px;
+}
+
+.tabel .opsi {
+    text-align: center;
+}
+
+.pagination {
+    margin: 10px 0 0 150px;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.pagination a.active {
+    background-color: dodgerblue;
+    color: black;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.box-search {
+    display: flex;
+    align-content: space-between;
+    align-items: flex-end;
+    flex-direction: column-reverse;
+    padding-bottom: 1em;
+}
+
+.box-search input {
+    border: 1px solid #C6C6C6;
+}
+
+
+/* css buat input  */
+.row {
+    background-color: white;
+    border-radius: 3px;
+    margin: 10px auto;
+    padding: 10px;
+    width: 85%;
+    min-height: 50px;
+}
+
+.kotak-form {
+	padding: 10px;
+}
+
+.form-input {
+	width: 100%;
+}
+
+.form-input label {
+	display: block;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.form-input label>span {
+	float: left;
+	width: 250px;
+}
+
+.form-input .input-field,
+.search {
+	width: 50%;
+	height: 40px;
+	border-radius: 5px;
+	box-sizing: border-box;
+	outline: none;
+}
+
+
+.submit {
+	background-color: #32C1CD;
+    display: flex;
+	margin-top: 10px;
+	border-radius: 5px;
+	box-shadow: 0 4px 10px 0 rgb(255, 255, 255);
+	padding: 10px;
+	color: white;
+    border:none;
+    cursor: pointer;
+}
+
+button i {
+	padding-right: 10px;
+}
+
+.row .submit .fa-customize{
+    margin-top:3px;
+}
