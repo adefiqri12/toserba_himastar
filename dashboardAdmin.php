@@ -20,7 +20,7 @@ $menu = mysqli_query($koneksi, $query);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/hias.css">
     <link href="https://drive.google.com/uc?export=view&id=1DkxJAKaJbRUKbVZbg6W79F9mS_oVcAar" rel="shortcut icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Dashboard admin | Himastar</title>
@@ -97,8 +97,8 @@ $menu = mysqli_query($koneksi, $query);
                     } ?>
                 </table>
             </div>
-            <div class="tombol3">
-                <a href="#">tambah barang</a>
+            <div class="tombol4">
+                <a href="tambahMenu.php">tambah barang</a>
             </div>
         </div>
     </div>

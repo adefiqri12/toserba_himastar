@@ -245,6 +245,23 @@ table.tabel {
     text-align: center;
 }
 
+.tombol4{
+    width: 15%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-top: 5px;
+    display: inline-block;
+    text-align: center;
+    background-color: #0ab4f2;
+    margin-top:10px;
+}
+
+.tombol4 a{
+    text-decoration: none;
+    color:black;
+}
+
 .tombol2,
 .tombol3,
 #btn-remove {
@@ -319,18 +336,7 @@ table.tabel {
 
 
 /* css buat input  */
-.row {
-    background-color: white;
-    border-radius: 3px;
-    margin: 10px auto;
-    padding: 10px;
-    width: 85%;
-    min-height: 50px;
-}
 
-.kotak-form {
-	padding: 10px;
-}
 
 .form-input {
 	width: 100%;
@@ -338,7 +344,6 @@ table.tabel {
 
 .form-input label {
 	display: block;
-	margin-left: 20px;
 	margin-top: 20px;
 }
 
@@ -355,7 +360,6 @@ table.tabel {
 	box-sizing: border-box;
 	outline: none;
 }
-
 
 .submit {
 	background-color: #32C1CD;

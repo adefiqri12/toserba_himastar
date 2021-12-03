@@ -1,10 +1,6 @@
 <?php
 include 'function.php';
 
-if (isset($_SESSION['login']) != 'ya') {
-	header("Location: ../index.php");
-}
-
 $koneksi = mysqli_connect("localhost","root","","db_toserba");
 	
 
@@ -26,7 +22,7 @@ $menu = mysqli_query($koneksi,"SELECT * FROM pembeli LIMIT $awalData, $jumlahDat
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/hias.css">
     <link href="https://drive.google.com/uc?export=view&id=1DkxJAKaJbRUKbVZbg6W79F9mS_oVcAar" rel="shortcut icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Dashboard admin | Himastar</title>
