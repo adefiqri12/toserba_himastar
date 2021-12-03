@@ -156,10 +156,10 @@ $menu = mysqli_query($koneksi, "SELECT * FROM cart INNER JOIN pembeli ON cart.id
                                         <td><?php echo number_format($res['harga_total_barang']) ?></td>
                                         <td><?php echo number_format($res['total_harga']) ?></td>
                                         <td class="opsi">
-                                                <!-- <a href="hapusAkun.php?id=<?= $res['id_cart'] ?>"><i class="fa fa-trash"></i> Hapus</a> -->
-                                                <input type="submit" name="update" class="form-control1" value="Update" \>
-                                                <input type="hidden" name="idproduknya" value="<?php echo $res['id_barang'] ?>" \>
-                                                <input type="submit" name="hapus" class="form-control2" value="Hapus" \>
+                                            <!-- <a href="hapusAkun.php?id=<?= $res['id_cart'] ?>"><i class="fa fa-trash"></i> Hapus</a> -->
+                                            <input type="submit" name="update" class="form-control1" value="Update" \>
+                                            <input type="hidden" name="idproduknya" value="<?php echo $res['id_barang'] ?>" \>
+                                            <input type="submit" name="hapus" class="form-control2" value="Hapus" \>
                                     </form>
                                     </td>
                                 </tr>
@@ -180,6 +180,11 @@ $menu = mysqli_query($koneksi, "SELECT * FROM cart INNER JOIN pembeli ON cart.id
                             </td>
                         </tr>
                     </table>
+                </div>
+                <div class="tombol-tambahKeranjang" style="width: 10%;">
+                    <div class="buttonTambah">
+                        <a href="checkout.php">Checkout</a>
+                    </div>
                 </div>
             </div>
 

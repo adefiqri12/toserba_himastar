@@ -327,6 +327,11 @@ table.tabel {
     margin: auto;
 }
 
+
+.tombol-tambahKeranjang .buttonTambah a{
+    color: white;
+}
+
 .tabel .opsi {
     text-align: center;
 }
