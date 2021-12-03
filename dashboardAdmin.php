@@ -16,7 +16,7 @@ $menu = mysqli_query($koneksi, $query);
 <!DOCTYPE html>
 <html lang="en">
 
-<head>  
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +46,7 @@ $menu = mysqli_query($koneksi, $query);
             <div class="Box">
                 <p>Selamat datang</p>
             </div>
-            
+
             <div class="box-search">
                 <div class="kotak-form">
                     <form class="form-input" method="post">
@@ -54,48 +54,51 @@ $menu = mysqli_query($koneksi, $query);
                     </form>
                 </div>
             </div>
-            
-            <div id="bungkus">
-            <table class="tabel">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama barang</th>
-                        <th>Jenis</th>
-                        <th>Harga</th>
-                        <th>Jumlah</th>
-                        <th>Opsi</th>
-                    </tr>
-                </thead>
-                <?php
-                if (mysqli_num_rows($menu) == 0) {
-                    echo "Tidak Ada Data Tersedia";
-                } else {
-                    $i =1;
-                    while ($res = mysqli_fetch_assoc($menu)) {
-                ?>
-                        <tbody>
-                            <tr>
-                                <td class="nomor-tabel"><?php echo $i++; ?></td>
-                                <td><?php echo $res['nama_barang']; ?></td>
-                                <td><?php echo $res['nama_jenis'] ?></td>
-                                <td><?php echo $res['harga_barang'] ?></td>
-                                <td><?php echo $res['jumlah_barang'] ?></td>
-                                <td class="opsi">
-                                    <div class="tombol2">
-                                        <a href="editMenu.php?id=<?= $res['id_barang'] ?>"><i class="fa fa-edit"></i> Edit</a>
-                                    </div>
-                                    <div class="tombol3">
-                                        <a href="hapusMenu.php?id=<?= $res['id_barang'] ?>"><i class="fa fa-trash"></i> Hapus</a>
-                                    </div>
 
-                                </td>
-                            </tr>
-                        </tbody>
-                <?php
-                    }
-                } ?>
-            </table>
+            <div id="bungkus">
+                <table class="tabel">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama barang</th>
+                            <th>Jenis</th>
+                            <th>Harga</th>
+                            <th>Jumlah</th>
+                            <th>Opsi</th>
+                        </tr>
+                    </thead>
+                    <?php
+                    if (mysqli_num_rows($menu) == 0) {
+                        echo "Tidak Ada Data Tersedia";
+                    } else {
+                        $i = 1;
+                        while ($res = mysqli_fetch_assoc($menu)) {
+                    ?>
+                            <tbody>
+                                <tr>
+                                    <td class="nomor-tabel"><?php echo $i++; ?></td>
+                                    <td><?php echo $res['nama_barang']; ?></td>
+                                    <td><?php echo $res['nama_jenis'] ?></td>
+                                    <td><?php echo $res['harga_barang'] ?></td>
+                                    <td><?php echo $res['jumlah_barang'] ?></td>
+                                    <td class="opsi">
+                                        <div class="tombol2">
+                                            <a href="editMenu.php?id=<?= $res['id_barang'] ?>"><i class="fa fa-edit"></i> Edit</a>
+                                        </div>
+                                        <div class="tombol3">
+                                            <a href="hapusMenu.php?id=<?= $res['id_barang'] ?>"><i class="fa fa-trash"></i> Hapus</a>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                    <?php
+                        }
+                    } ?>
+                </table>
+            </div>
+            <div class="tombol3">
+                <a href="#">tambah barang</a>
             </div>
         </div>
     </div>

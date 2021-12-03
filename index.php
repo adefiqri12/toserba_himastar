@@ -1,37 +1,36 @@
 <?php
 session_start();
 $koneksi = mysqli_connect("localhost", "root", "", "db_toserba");
-
-if (isset($_SESSION['login']) != 'ya') {
-	header("Location: ../index.php");
-}
-
+ 
 if (isset($_POST['submit'])) {
-    $username = mysqli_real_escape_string($koneksi, $_POST['username']);
-    $pass = mysqli_real_escape_string($koneksi, $_POST['password']);
-    $password = md5($pass);
+	$username= mysqli_real_escape_string($koneksi,$_POST['username']);
+    $pass = mysqli_real_escape_string($koneksi,$_POST['password']);
+	$password = md5($pass);
 
-    $queryAdmin = mysqli_query($koneksi, "SELECT * FROM admin WHERE username ='$username' AND password ='$password'");
-    $queryPembeli = mysqli_query($koneksi, "SELECT * FROM pembeli WHERE username ='$username' AND password ='$password'");
+	$queryAdmin = mysqli_query($koneksi,"SELECT * FROM admin WHERE username ='$username' AND password ='$password'");
+	$queryPembeli = mysqli_query($koneksi,"SELECT * FROM pembeli WHERE username ='$username' AND password ='$password'");
 
-    $cekAdmin = mysqli_num_rows($queryAdmin);
-    $cekPembeli = mysqli_num_rows($queryPembeli);
-    if ($cekAdmin == 0 && $cekPembeli == 0) {
-        echo "<script>alert('Username atau Password Anda salah. Silahkan coba lagi!')</script>";
-    } else if ($cekAdmin > 0) {
-        $row = mysqli_fetch_assoc($queryAdmin);
-        $_SESSION['username'] = $row['username'];
-        $_SESSION['nama_lengkap'] = $row['nama_lengkap'];
-        $_SESSION['login'] = 'ya';
-        header('Location: dashboardAdmin.php');
-    } else if ($cekPembeli > 0) {
-        $row = mysqli_fetch_assoc($queryAdmin);
-        $_SESSION['username'] = $row['username'];
-        $_SESSION['nama_pembeli'] = $row['nama_pembeli'];
-        $_SESSION['login'] = 'ya';
-        header('Location: dashboardAdmin.php');
-    }
-}
+	$cekAdmin = mysqli_num_rows($queryAdmin);
+	$cekPembeli = mysqli_num_rows($queryPembeli);
+	if ($cekAdmin == 0 && $cekPembeli == 0) {
+		echo "<script>alert('Username atau Password Anda salah. Silahkan coba lagi!')</script>";
+	}else if ($cekAdmin > 0){
+		$row = mysqli_fetch_assoc($queryAdmin);
+		$_SESSION['username'] = $row['username'];
+		$_SESSION['nama_lengkap'] = $row['nama_lengkap'];
+		$_SESSION['log'] ='ya';
+		header('Location: dashboardAdmin.php');
+	}
+	else if ($cekPembeli > 0){
+		$row = mysqli_fetch_assoc($queryPembeli);
+		$_SESSION['username'] = $row['username'];
+		$_SESSION['nama_pembeli'] = $row['nama_pembeli'];
+		$_SESSION['id_pembeli'] = $row['id_pembeli'];
+		$_SESSION['password'] = $row['password'];
+		$_SESSION['log'] ='ya';
+		header('Location: Pembeli/index.php');
+	}
+} 
 ?>
 
 <!DOCTYPE html>
