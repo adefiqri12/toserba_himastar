@@ -136,16 +136,16 @@ nav {
 
 nav .logo {
     font-size: 150%;
-    margin-left: 5.25em;
+    margin-left: 2.5em;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    width: 40%;
+    width: 30%;
     margin-left: 30%;
     justify-content: space-between;
-    margin-right: 8em;
+    margin-right: 3.75em;
 }
 
 nav ul li a {
@@ -297,6 +297,29 @@ table.tabel {
     margin: 1px;
 }
 
+.tombol-tambahKeranjang{
+    background-color: #17D7A0;
+    border:none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-top: 5px;
+    display: inline-block;
+    text-align: center;
+    color:white;
+    font-size: 120%;
+}
+
+.buttonTambah{
+    background-color:#17D7A0;
+    border:none;
+    color:white;
+    cursor:pointer;
+    font-size: 80%;
+}
+
+
 .tabel .opsi {
     text-align: center;
 }
@@ -336,7 +359,6 @@ table.tabel {
 
 
 /* css buat input  */
-
 
 .form-input {
 	width: 100%;

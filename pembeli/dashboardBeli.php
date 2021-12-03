@@ -30,9 +30,9 @@ $menu = mysqli_query($koneksi, "SELECT * FROM barang INNER JOIN jenis_barang ON 
             <h4>Himastar</h4>
         </div>
         <ul>
-        <li><a href="/pembeli/index.php">Barang</a></li>
-			<li><a href="/pembeli/cart.php">Keranjang</a></li>
-			<li><a href="/pembeli/infoAkun.php">Info Akun</a></li>
+        <li><a href="dashboardBeli.php">Barang</a></li>
+			<li><a href="cart.php">Keranjang</a></li>
+			<li><a href="infoAkun.php">Info Akun</a></li>
             <a href="index.php"> <i class="fas fa-sign-in-alt fa-customize"></i> </a>
         </ul>
     </nav>
@@ -80,9 +80,10 @@ $menu = mysqli_query($koneksi, "SELECT * FROM barang INNER JOIN jenis_barang ON 
                                     <td><?php echo $res['jumlah_barang'] ?></td>
                                     <td class="opsi">
                                         <form action="beli.php" method="post">
-                                            <div class="tombol2">
+                                            <div class="tombol-tambahKeranjang">
+                                                <i class="fas fa-cart-plus"></i>
                                                 <input type="hidden" name="id" value="<?php echo $res['id_barang'] ?>">
-                                                <input type="submit" name="addprod" value="Add to cart" class="button">
+                                                <input type="submit" name="addprod" value="Masukkan keranjang" class="buttonTambah">
                                             </div>
                                         </form>
                                     </td>
