@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
 		$_SESSION['id_pembeli'] = $row['id_pembeli'];
 		$_SESSION['password'] = $row['password'];
 		$_SESSION['log'] ='ya';
-		header('Location: Pembeli/index.php');
+		header('Location: pembeli/dashboardBeli.php');
 	}
 } 
 ?>

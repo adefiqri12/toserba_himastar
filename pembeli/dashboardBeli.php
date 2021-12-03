@@ -1,17 +1,15 @@
 <?php
-include 'function.php';
+$koneksi = mysqli_connect("localhost", "root", "", "db_toserba");
 
-$result = mysqli_query($koneksi, "SELECT `id_barang`, barang.`jenis_barang`, `nama_barang`, `harga_barang`,`jumlah_barang` FROM `barang` INNER JOIN jenis_barang ON jenis_barang.id_jenis = barang.jenis_barang");
+$result = mysqli_query($koneksi, "SELECT * FROM barang INNER JOIN jenis_barang ON jenis_barang.id_jenis = barang.jenis_barang");
 
 $jumlahDataPerHalaman = 5;
 $jumlahData = mysqli_num_rows($result);
 $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
 $halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
 $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
-$query = "SELECT nama_jenis,`id_barang`, barang.`jenis_barang`, `nama_barang`, `harga_barang`,`jumlah_barang` FROM `barang` INNER JOIN jenis_barang ON jenis_barang.id_jenis = barang.jenis_barang LIMIT $awalData, $jumlahDataPerHalaman";
-$menu = mysqli_query($koneksi, $query);
+$menu = mysqli_query($koneksi, "SELECT * FROM barang INNER JOIN jenis_barang ON jenis_barang.id_jenis = barang.jenis_barang LIMIT $awalData, $jumlahDataPerHalaman");
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,10 +18,10 @@ $menu = mysqli_query($koneksi, $query);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/hias.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://drive.google.com/uc?export=view&id=1DkxJAKaJbRUKbVZbg6W79F9mS_oVcAar" rel="shortcut icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Dashboard admin | Himastar</title>
+    <title>Toserba Himastar </title>
 </head>
 
 <body>
@@ -32,10 +30,9 @@ $menu = mysqli_query($koneksi, $query);
             <h4>Himastar</h4>
         </div>
         <ul>
-            <li><a href="dashboardAdmin.php">Data produk</a></li>
-            <li><a href="akunPembeli.php">Manajemen akun</a></li>
-            <li><a href="akunAdmin.php">Tambah admin</a></li>
-            <li><a href="laporan.php">Laporan</a></li>
+        <li><a href="/pembeli/index.php">Barang</a></li>
+			<li><a href="/pembeli/cart.php">Keranjang</a></li>
+			<li><a href="/pembeli/infoAkun.php">Info Akun</a></li>
             <a href="index.php"> <i class="fas fa-sign-in-alt fa-customize"></i> </a>
         </ul>
     </nav>
@@ -82,13 +79,12 @@ $menu = mysqli_query($koneksi, $query);
                                     <td><?php echo $res['harga_barang'] ?></td>
                                     <td><?php echo $res['jumlah_barang'] ?></td>
                                     <td class="opsi">
-                                        <div class="tombol2">
-                                            <a href="editMenu.php?id=<?= $res['id_barang'] ?>"><i class="fa fa-edit"></i> Edit</a>
-                                        </div>
-                                        <div class="tombol3">
-                                            <a href="hapusMenu.php?id=<?= $res['id_barang'] ?>"><i class="fa fa-trash"></i> Hapus</a>
-                                        </div>
-
+                                        <form action="beli.php" method="post">
+                                            <div class="tombol2">
+                                                <input type="hidden" name="id" value="<?php echo $res['id_barang'] ?>">
+                                                <input type="submit" name="addprod" value="Add to cart" class="button">
+                                            </div>
+                                        </form>
                                     </td>
                                 </tr>
                             </tbody>
@@ -96,9 +92,6 @@ $menu = mysqli_query($koneksi, $query);
                         }
                     } ?>
                 </table>
-            </div>
-            <div class="tombol4">
-                <a href="tambahMenu.php">tambah barang</a>
             </div>
         </div>
     </div>
@@ -124,7 +117,7 @@ $menu = mysqli_query($koneksi, $query);
     </div>
     <footer>
         <div class="container-footer">
-            <p>Copyright &copy; 2021</p>
+            <p>Copyright &copy;Himastar 2021</p>
         </div>
     </footer>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>

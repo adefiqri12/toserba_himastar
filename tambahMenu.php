@@ -52,10 +52,10 @@ if (isset($_POST['submit'])) {
             <h4>Himastar</h4>
         </div>
         <ul>
-            <li><a href="/dashboardAdmin.php">Data produk</a></li>
-            <li><a href="/akunPembeli.php">Manajemen akun</a></li>
-            <li><a href="/akunAdmin.php">Tambah admin</a></li>
-            <li><a href="/laporan.php">Laporan</a></li>
+            <li><a href="dashboardAdmin.php">Data produk</a></li>
+            <li><a href="akunPembeli.php">Manajemen akun</a></li>
+            <li><a href="akunAdmin.php">Tambah admin</a></li>
+            <li><a href="laporan.php">Laporan</a></li>
             <a href="index.php  "> <i class="fas fa-sign-in-alt fa-customize"></i> </a>
         </ul>
     </nav>
