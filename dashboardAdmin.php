@@ -42,7 +42,7 @@ $menu = mysqli_query($koneksi, $query);
 
     <div class='section'>
         <div class="container-barang">
-            <h3>Dahboard</h3>
+            <h3>Dashboard</h3>
             <div class="Box">
                 <p>Selamat datang</p>
             </div>

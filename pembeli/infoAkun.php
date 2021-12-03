@@ -1,8 +1,7 @@
 <?php
 session_start();
-$koneksi = mysqli_connect("localhost","root","","db_toserba");
-if(isset($_SESSION['log']) == 'ya'){
-            
+$koneksi = mysqli_connect("localhost", "root", "", "db_toserba");
+if (isset($_SESSION['log']) == 'ya') {
 } else {
     header('Location: ../index.php');
 };
@@ -17,19 +16,19 @@ $usern = $_SESSION['username'];
 $pass = $_SESSION['password'];
 
 if (isset($_POST['editAkun'])) {
-	$nama = $_POST['nama'];
-	$notelp = $_POST['notelp'];
-	$alamat = $_POST['alamat'];
+    $nama = $_POST['nama'];
+    $notelp = $_POST['notelp'];
+    $alamat = $_POST['alamat'];
     $username = $_POST['username'];
     $password    = $_POST['pass'];
     $confirmPass = $_POST['confirmPassword'];
     // var_dump($_POST['password']);
     // die();
-    if(md5($_POST["passwordLama"]) != $pass){
+    if (md5($_POST["passwordLama"]) != $pass) {
         echo "<script>alert('Password Lama Invalid')</script>";
-    }else{
-        if($username == $usern){
-            if($password == ''){
+    } else {
+        if ($username == $usern) {
+            if ($password == '') {
                 $query = "UPDATE pembeli SET
                 nama_pembeli = '$nama', 
                 no_hp ='$notelp',
@@ -37,26 +36,24 @@ if (isset($_POST['editAkun'])) {
                 username = '$username'
                 WHERE id_pembeli ='$id'";
                 mysqli_query($koneksi, $query);
-                
-                if (mysqli_affected_rows($koneksi)>0) {
+
+                if (mysqli_affected_rows($koneksi) > 0) {
                     echo "
                     <script> 
                     alert('Akun Berhasil diubah');
                     document.location.href = 'infoAkun.php';
                     </script>
                     ";
-                }else{
+                } else {
                     echo "<script>alert('Username yang digunakan Sudah Terdaftar. Silahkan gunakan Username yang lain')</script>";
                 }
-            }
-            else{
+            } else {
                 $password    = md5($_POST['pass']);
                 $confirmPass = md5($_POST['confirmPassword']);
                 $syaratPass = $_POST['pass'];
                 $karakter   = preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/", $syaratPass);
-    
-                if ( strlen($syaratPass) >= 6 && $karakter)
-                {
+
+                if (strlen($syaratPass) >= 6 && $karakter) {
                     if ($password == $confirmPass) {
                         $sql = "UPDATE pembeli SET
                                 nama_pembeli = '$nama', 
@@ -72,19 +69,17 @@ if (isset($_POST['editAkun'])) {
                         document.location.href = 'infoAkun.php';
                         </script>
                         ";
-                    }
-                    else {
+                    } else {
                         echo "<script>alert('Password dan Confirm Password Tidak Sama')</script>";
                     }
-                }
-                else{
+                } else {
                     echo "<script>alert('Syarat Password Tidak Terpenuhi.')</script>";
                 }
             }
-        }else{
+        } else {
             $sqlQuery = "SELECT * FROM pembeli WHERE username='$username'";
             $result = mysqli_query($koneksi, $sqlQuery);
-            if($password == ''){
+            if ($password == '') {
                 if (mysqli_num_rows($result) == 0) {
                     $query = "UPDATE pembeli SET
                         nama_pembeli = '$nama', 
@@ -92,8 +87,8 @@ if (isset($_POST['editAkun'])) {
                         alamat = '$alamat',
                         username = '$username'
                         WHERE id_pembeli ='$id'";
-                        mysqli_query($koneksi, $query);
-                        echo "
+                    mysqli_query($koneksi, $query);
+                    echo "
                         <script>
                         alert('Akun Berhasil diubah')
                         document.location.href = 'infoAkun.php';
@@ -101,15 +96,13 @@ if (isset($_POST['editAkun'])) {
                 } else {
                     echo "<script>alert('Username yang digunakan Sudah Terdaftar. Silahkan gunakan Username yang lain')</script>";
                 }
-            }
-            else{
+            } else {
                 $password    = md5($_POST['pass']);
                 $confirmPass = md5($_POST['confirmPassword']);
                 $syaratPass = $_POST['pass'];
                 $karakter   = preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/", $syaratPass);
-    
-                if ( strlen($syaratPass) >= 6 && $karakter)
-                {
+
+                if (strlen($syaratPass) >= 6 && $karakter) {
                     if ($password == $confirmPass) {
                         if (mysqli_num_rows($result) == 0) {
                             $sql = "UPDATE pembeli SET
@@ -129,17 +122,14 @@ if (isset($_POST['editAkun'])) {
                         } else {
                             echo "<script>alert('Username yang digunakan Sudah Terdaftar. Silahkan gunakan Username yang lain')</script>";
                         }
-                    }
-                    else {
+                    } else {
                         echo "<script>alert('Password dan Confirm Password Tidak Sama')</script>";
                     }
-                }
-                else{
+                } else {
                     echo "<script>alert('Syarat Password Tidak Terpenuhi.')</script>";
                 }
             }
         }
-        
     }
 }
 ?>
@@ -177,9 +167,9 @@ if (isset($_POST['editAkun'])) {
             <div class="box-profile">
                 <div class="photo-profile">
                     <div class="photo">
-                        <img src="https://drive.google.com/uc?export=view&id=1DkxJAKaJbRUKbVZbg6W79F9mS_oVcAar" alt="shortcut icon">
+                        <img src="<?php echo "fileProfil/" . $men['gambar']; ?>" alt="shortcut icon">
                         <label for="input-photo" class="label-input-photo">Ganti foto profile</label>
-                        <input type="file" name="photo" id="input-photo" accept="image/*"/>
+                        <input type="file" name="photo" id="input-photo" accept="image/*" />
 
                     </div>
                 </div>

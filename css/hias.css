@@ -333,7 +333,9 @@ table.tabel {
 .box-search input {
     border: 1px solid #C6C6C6;
 }
-
+#bungkus{
+    margin-top:10px;
+}
 
 /* css buat input  */
 

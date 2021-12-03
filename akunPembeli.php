@@ -1,17 +1,17 @@
 <?php
 include 'function.php';
 
-$koneksi = mysqli_connect("localhost","root","","db_toserba");
-	
+$koneksi = mysqli_connect("localhost", "root", "", "db_toserba");
 
-$result = mysqli_query($koneksi,"SELECT * FROM pembeli");
+
+$result = mysqli_query($koneksi, "SELECT * FROM pembeli");
 
 $jumlahDataPerHalaman = 5;
 $jumlahData = mysqli_num_rows($result);
 $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
-$halamanAktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
-$awalData = ( $jumlahDataPerHalaman * $halamanAktif ) - $jumlahDataPerHalaman;
-$menu = mysqli_query($koneksi,"SELECT * FROM pembeli LIMIT $awalData, $jumlahDataPerHalaman");
+$halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
+$awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
+$menu = mysqli_query($koneksi, "SELECT * FROM pembeli LIMIT $awalData, $jumlahDataPerHalaman");
 ?>
 
 
@@ -44,19 +44,11 @@ $menu = mysqli_query($koneksi,"SELECT * FROM pembeli LIMIT $awalData, $jumlahDat
 
     <div class='section'>
         <div class="container-barang">
-            <h3>Dahboard</h3>
+            <h3>Manajemen akun pembeli</h3>
             <div class="Box">
-                <p>Selamat datang</p>
+                <p>Hallo, </p>
             </div>
 
-            <div class="box-search">
-                <div class="kotak-form">
-                    <form class="form-input" method="post">
-                        <input type="text" name="cari" placeholder="Cari" autocomplete="off" id="cari">
-                    </form>
-                </div>
-
-            </div>
             <div id="bungkus">
                 <table class="tabel">
                     <thead>
@@ -73,7 +65,7 @@ $menu = mysqli_query($koneksi,"SELECT * FROM pembeli LIMIT $awalData, $jumlahDat
                     if (mysqli_num_rows($menu) == 0) {
                         echo "Tidak Ada Data Tersedia";
                     } else {
-                        $i =1;
+                        $i = 1;
                         while ($res = mysqli_fetch_assoc($menu)) {
                     ?>
                             <tr>
