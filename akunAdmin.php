@@ -64,9 +64,9 @@ if (isset($_POST['submit'])) {
 
     <div class='section'>
         <div class="container-barang">
-            <h3>Dahboard</h3>
+            <h3>Manajemen akun admin</h3>
             <div class="Box">
-                <p>Selamat datang</p>
+                <p></p>
             </div>
 
             <div class="row">

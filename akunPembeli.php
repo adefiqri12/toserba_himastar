@@ -46,75 +46,75 @@ $menu = mysqli_query($koneksi, "SELECT * FROM pembeli LIMIT $awalData, $jumlahDa
         <div class="container-barang">
             <h3>Manajemen akun pembeli</h3>
             <div class="Box">
-                <p>Hallo, </p>
+                <p></p> 
             </div>
 
-            <div id="bungkus">
-                <table class="tabel">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama pembeli</th>
-                            <th>No HP</th>
-                            <th>Alamat</th>
-                            <th>Username</th>
-                            <th>Opsi</th>
-                        </tr>
-                    </thead>
-                    <?php
-                    if (mysqli_num_rows($menu) == 0) {
-                        echo "Tidak Ada Data Tersedia";
-                    } else {
-                        $i = 1;
-                        while ($res = mysqli_fetch_assoc($menu)) {
-                    ?>
+                <div id="bungkus">
+                    <table class="tabel">
+                        <thead>
                             <tr>
-                                <td class="nomor-tabel"><?php echo $i++; ?></td>
-                                <td><?php echo $res['nama_pembeli']; ?></td>
-                                <td><?php echo $res['no_hp'] ?></td>
-                                <td><?php echo $res['alamat'] ?></td>
-                                <td><?php echo $res['username'] ?></td>
-                                <td class="opsi">
-                                    <div class="tombol3">
-                                        <a href="hapusAkun.php?id=<?= $res['id_pembeli'] ?>"><i class="fa fa-trash"></i> Hapus</a>
-                                    </div>
-                                </td>
+                                <th>No</th>
+                                <th>Nama pembeli</th>
+                                <th>No HP</th>
+                                <th>Alamat</th>
+                                <th>Username</th>
+                                <th>Opsi</th>
                             </tr>
-                    <?php
+                        </thead>
+                        <?php
+                        if (mysqli_num_rows($menu) == 0) {
+                            echo "Tidak Ada Data Tersedia";
+                        } else {
+                            $i = 1;
+                            while ($res = mysqli_fetch_assoc($menu)) {
+                        ?>
+                                <tr>
+                                    <td class="nomor-tabel"><?php echo $i++; ?></td>
+                                    <td><?php echo $res['nama_pembeli']; ?></td>
+                                    <td><?php echo $res['no_hp'] ?></td>
+                                    <td><?php echo $res['alamat'] ?></td>
+                                    <td><?php echo $res['username'] ?></td>
+                                    <td class="opsi">
+                                        <div class="tombol3">
+                                            <a href="hapusAkun.php?id=<?= $res['id_pembeli'] ?>"><i class="fa fa-trash"></i> Hapus</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                        <?php
+                            }
                         }
-                    }
-                    ?>
-                </table>
+                        ?>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="pagination">
-        <?php if ($halamanAktif > 1) : ?>
-            <a href="#">&laquo;</a>
-        <?php endif; ?>
-        <?php for ($i = 1; $i <= $jumlahHalaman; $i++) : ?>
-            <?php if ($i == $halamanAktif) : ?>
-                <a href="?halaman=<?= $i ?>" class="active"><?= $i; ?></a>
-            <?php else : ?>
-                <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+        <div class="pagination">
+            <?php if ($halamanAktif > 1) : ?>
+                <a href="#">&laquo;</a>
             <?php endif; ?>
-        <?php endfor; ?>
+            <?php for ($i = 1; $i <= $jumlahHalaman; $i++) : ?>
+                <?php if ($i == $halamanAktif) : ?>
+                    <a href="?halaman=<?= $i ?>" class="active"><?= $i; ?></a>
+                <?php else : ?>
+                    <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+                <?php endif; ?>
+            <?php endfor; ?>
 
-        <?php if ($halamanAktif < $jumlahHalaman) : ?>
-            <a href="?halaman=<?= $halamanAktif + 1; ?>">&raquo;</a>
-        <?php endif; ?>
+            <?php if ($halamanAktif < $jumlahHalaman) : ?>
+                <a href="?halaman=<?= $halamanAktif + 1; ?>">&raquo;</a>
+            <?php endif; ?>
 
-        <?php if ($halamanAktif > $jumlahHalaman) : ?>
-            <?php echo "<script>alert('Data tidak ada')</script>";  ?>
-        <?php endif; ?>
-    </div>
-    <footer>
-        <div class="container-footer">
-            <p>Copyright &copy; 2021</p>
+            <?php if ($halamanAktif > $jumlahHalaman) : ?>
+                <?php echo "<script>alert('Data tidak ada')</script>";  ?>
+            <?php endif; ?>
         </div>
-    </footer>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="script/scriptBarang.js"></script>
+        <footer>
+            <div class="container-footer">
+                <p>Copyright &copy; 2021</p>
+            </div>
+        </footer>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <script src="script/scriptBarang.js"></script>
 </body>
 
 </html>
