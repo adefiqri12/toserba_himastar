@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
 
     <footer>
         <div class="container-footer">
-            <p>Copyright &copy; 2021</p>
+            <p>Copyright &copy;Himastar 2021</p>
         </div>
     </footer>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>

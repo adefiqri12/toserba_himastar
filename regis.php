@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
     </div>
     <footer>
         <div class="container-footer">
-            <p>Copyright &copy; 2021</p>
+            <p>Copyright &copy;Himastar 2021</p>
         </div>
     </footer>
 </body>
