@@ -298,27 +298,30 @@ table.tabel {
 }
 
 .tombol-tambahKeranjang{
+    display:flex;
+    align-items: center;
+    align-content: center;
     background-color: #17D7A0;
     border:none;
-    cursor: pointer;
-    padding: 10px;
+    padding: 10px 0px 10px 10px;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin-top: 5px;
-    display: inline-block;
     text-align: center;
     color:white;
     font-size: 120%;
+    width:65%;
+    margin:auto;
 }
 
 .buttonTambah{
+    display:flex;
     background-color:#17D7A0;
     border:none;
     color:white;
     cursor:pointer;
     font-size: 80%;
+    margin:auto;
 }
-
 
 .tabel .opsi {
     text-align: center;
@@ -401,4 +404,79 @@ button i {
 
 .row .submit .fa-customize{
     margin-top:3px;
+}
+
+/* profile */
+
+.section .container-profile {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.section .container-profile:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.box-profile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+}
+
+.photo-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    /* border: 1px solid black; */
+    width:50%;
+}
+
+.photo-profile .photo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+#input-photo{
+    display:none;
+}
+
+.label-input-photo{
+    cursor: pointer;
+    display:flex;
+    background-color: #049DD9;
+    border-radius:5px ;
+    color:white;
+    padding:10px;
+    margin-top:10px;
+}
+
+.photo img{
+    display: flex;
+    width:200px;
+    clip-path: circle();
+}
+
+.form-input .submit .fa-customize{
+    margin-top:3px;
+}
+
+.opsi .form-control1, .opsi .form-control2{
+    color:white;
+    border: none;
+    padding:10px;
+    border-radius:5px;
+    cursor: pointer;
+}
+.opsi .form-control1{
+    background-color: #17D7A0;
+}
+
+.opsi .form-control2{
+    background-color:#FF5C58;
 }

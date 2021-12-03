@@ -81,8 +81,8 @@ $menu = mysqli_query($koneksi, "SELECT * FROM barang INNER JOIN jenis_barang ON 
                                     <td class="opsi">
                                         <form action="beli.php" method="post">
                                             <div class="tombol-tambahKeranjang">
-                                                <i class="fas fa-cart-plus"></i>
                                                 <input type="hidden" name="id" value="<?php echo $res['id_barang'] ?>">
+                                                <i class="fas fa-cart-plus"></i>
                                                 <input type="submit" name="addprod" value="Masukkan keranjang" class="buttonTambah">
                                             </div>
                                         </form>
