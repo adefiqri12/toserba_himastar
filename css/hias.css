@@ -382,3 +382,13 @@ button i {
 .row .submit .fa-customize{
     margin-top:3px;
 }
+
+.tmbl{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction:row-reverse;
+    margin-left:94.5%;
+    margin-top:10px;
+}

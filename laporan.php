@@ -1,15 +1,7 @@
 <?php
 include 'function.php';
 
-$result = mysqli_query($koneksi, "SELECT `id_barang`, barang.`jenis_barang`, `nama_barang`, `harga_barang`,`jumlah_barang` FROM `barang` INNER JOIN jenis_barang ON jenis_barang.id_jenis = barang.jenis_barang");
-
-$jumlahDataPerHalaman = 5;
-$jumlahData = mysqli_num_rows($result);
-$jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
-$halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
-$awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
-$query = "SELECT nama_jenis,`id_barang`, barang.`jenis_barang`, `nama_barang`, `harga_barang`,`jumlah_barang` FROM `barang` INNER JOIN jenis_barang ON jenis_barang.id_jenis = barang.jenis_barang LIMIT $awalData, $jumlahDataPerHalaman";
-$menu = mysqli_query($koneksi, $query);
+$menu = mysqli_query($koneksi,"SELECT * FROM laporan2");
 ?>
 
 
@@ -42,17 +34,9 @@ $menu = mysqli_query($koneksi, $query);
 
     <div class='section'>
         <div class="container-barang">
-            <h3>Dashboard</h3>
+            <h3>Laporan</h3>
             <div class="Box">
-                <p>Selamat datang</p>
-            </div>
-
-            <div class="box-search">
-                <div class="kotak-form">
-                    <form class="form-input" method="post">
-                        <input type="text" name="cari" placeholder="Cari" autocomplete="off" id="cari">
-                    </form>
-                </div>
+                <p></p>
             </div>
 
             <div id="bungkus">
@@ -100,6 +84,11 @@ $menu = mysqli_query($koneksi, $query);
                             </td>
                         </tr>
                     </table>
+                </div>
+            </div>
+            <div class="tmbl" style="width: 5%;">
+                <div class="tombol3">
+                    <a href="hapusLaporan.php"><i class="fa fa-trash"></i> Hapus Semua</a>
                 </div>
             </div>
         </div>

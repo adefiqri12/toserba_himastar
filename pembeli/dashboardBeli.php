@@ -34,13 +34,13 @@ $menu = mysqli_query($koneksi, "SELECT * FROM barang INNER JOIN jenis_barang ON 
         <li><a href="dashboardBeli.php">Barang</a></li>
 			<li><a href="cart.php">Keranjang</a></li>
 			<li><a href="infoAkun.php">Info Akun</a></li>
-            <a href="index.php"> <i class="fas fa-sign-in-alt fa-customize"></i> </a>
+            <a href="../index.php"> <i class="fas fa-sign-in-alt fa-customize"></i> </a>
         </ul>
     </nav>
 
     <div class='section'>
         <div class="container-barang">
-            <h3>Dahboard</h3>
+            <h3>Dashboard</h3>
             <div class="Box">
                 <p>Selamat datang</p>
             </div>

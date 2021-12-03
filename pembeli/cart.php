@@ -1,6 +1,11 @@
 <?php
-$koneksi = mysqli_connect("localhost", "root", "", "db_toserba");
 session_start();
+$koneksi = mysqli_connect("localhost", "root", "", "db_toserba");
+if (isset($_SESSION['log']) == 'ya') {
+} else {
+    header('Location: ../index.php');
+};
+
 $uid = $_SESSION['id_pembeli'];
 $caricart = mysqli_query($koneksi, "SELECT * FROM cart WHERE id_pembeli='$uid'");
 $fetc = mysqli_fetch_array($caricart);
@@ -20,9 +25,9 @@ if (isset($_POST["update"])) {
     if ($lebihJumlah < $jumlah) {
 
         echo " <script> 
-            alert('Gagal update cart. Melebihi Stok')
-            </script>
-        <meta http-equiv='refresh' content='1; url= cart.php'/>";
+				alert('Gagal update cart. Melebihi Stok')
+				</script>
+			<meta http-equiv='refresh' content='1; url= cart.php'/>";
     } else {
         if ($jumlah == 0) {
             $jumlah2 = $res2['jumlah_barang'];
@@ -31,9 +36,9 @@ if (isset($_POST["update"])) {
 
             $hapusCart = mysqli_query($koneksi, "DELETE FROM cart WHERE idBarang = '$kode' AND id_pembeli = '$uid'");
             echo "<script> 
-            alert('Berhasil Update Barang. Barang Akan Terhapus')
-            </script>
-            <meta http-equiv='refresh' content='1; url= cart.php'/>";
+				alert('Berhasil Update Cart. Cart Akan Terhapus')
+				</script>
+				<meta http-equiv='refresh' content='1; url= cart.php'/>";
         } else {
             $harga = $res2['harga_barang'];
             $total = $jumlah * $harga;
@@ -45,14 +50,14 @@ if (isset($_POST["update"])) {
                 $ubahJumlah = ceil(($jumlah2 + $jumlahBefore) - $jumlah);
                 $simpanJumlah = mysqli_query($koneksi, "UPDATE barang set jumlah_barang = '$ubahJumlah' WHERE id_barang = '$kode'");
                 echo "<script> 
-                alert('Berhasil Update Barang')
-                </script>
-                <meta http-equiv='refresh' content='1; url= cart.php'/>";
+					alert('Berhasil Update Cart')
+					</script>
+					<meta http-equiv='refresh' content='1; url= cart.php'/>";
             } else {
                 echo " <script> 
-                alert('Gagal update cart')
-                </script>
-                <meta http-equiv='refresh' content='1; url= cart.php'/>";
+					alert('Gagal update cart')
+					</script>
+					<meta http-equiv='refresh' content='1; url= cart.php'/>";
             }
         }
     }
@@ -71,14 +76,16 @@ if (isset($_POST["update"])) {
         $ubahJumlah = ceil($jumlah2 + $jumlahBefore);
         $simpanJumlah = mysqli_query($koneksi, "UPDATE barang set jumlah_barang = '$ubahJumlah' WHERE id_barang = '$kode'");
         echo " <script> 
-            // alert('Berhasil Hapus Barang')
-            </script>";
+				alert('Berhasil Hapus Cart')
+				</script>";
     } else {
         echo " <script> 
-            alert('Gagal Hapus Barang')
-            </script>";
+				alert('Gagal Hapus Cart')
+				</script>";
     }
 }
+
+
 $menu = mysqli_query($koneksi, "SELECT * FROM cart INNER JOIN pembeli ON cart.id_pembeli = pembeli.id_pembeli INNER JOIN barang ON cart.idBarang = barang.id_barang WHERE cart.id_pembeli = '$uid'");
 ?>
 
@@ -105,17 +112,20 @@ $menu = mysqli_query($koneksi, "SELECT * FROM cart INNER JOIN pembeli ON cart.id
             <li><a href="dashboardBeli.php">Barang</a></li>
             <li><a href="cart.php">Keranjang</a></li>
             <li><a href="infoAkun.php">Info Akun</a></li>
-            <a href="index.php"> <i class="fas fa-sign-in-alt fa-customize"></i> </a>
+            <a href="../index.php"> <i class="fas fa-sign-in-alt fa-customize"></i> </a>
         </ul>
     </nav>
 
     <div class='section'>
         <div class="container-barang">
             <h3>Keranjang</h3>
-            <div id="bungkus">
+            <div class="Box">
+                <p></p>
+            </div>
 
+            <div id="bungkus">
                 <div class="row">
-                    <table class="tabel">
+                    <table class="table-data">
                         <tr>
                             <!-- <th>No</th> -->
                             <th>ID Pembelian</th>
@@ -146,10 +156,12 @@ $menu = mysqli_query($koneksi, "SELECT * FROM cart INNER JOIN pembeli ON cart.id
                                         <td><?php echo number_format($res['harga_total_barang']) ?></td>
                                         <td><?php echo number_format($res['total_harga']) ?></td>
                                         <td class="opsi">
-                                            <!-- <a href="hapusAkun.php?id=<?= $res['id_cart'] ?>"><i class="fa fa-trash"></i> Hapus</a> -->
-                                            <input type="submit" name="update" class="form-control1" value="Update" \>
-                                            <input type="hidden" name="idproduknya" value="<?php echo $res['id_barang'] ?>" \>
-                                            <input type="submit" name="hapus" class="form-control2" value="Hapus" \>
+                                            <div class="tombol3">
+                                                <!-- <a href="hapusAkun.php?id=<?= $res['id_cart'] ?>"><i class="fa fa-trash"></i> Hapus</a> -->
+                                                <input type="submit" name="update" class="form-control" value="Update" \>
+                                                <input type="hidden" name="idproduknya" value="<?php echo $res['id_barang'] ?>" \>
+                                                <input type="submit" name="hapus" class="form-control" value="Hapus" \>
+                                            </div>
                                     </form>
                                     </td>
                                 </tr>
@@ -174,12 +186,12 @@ $menu = mysqli_query($koneksi, "SELECT * FROM cart INNER JOIN pembeli ON cart.id
             </div>
 
             <footer>
-                <div class="container-footer">
+                <div class="container-footer2">
                     <p>Copyright &copy;Himastar 2021</p>
                 </div>
             </footer>
-            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-            <script src="script/scriptBarang.js"></script>
 </body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="script/scriptBarang.js"></script>
 
 </html>

@@ -178,7 +178,7 @@ form p {
     color: rgb(65);
 }
 
-.container-footer {
+.container-footer, .container-footer2 {
     display: flex;
     /* border: 2px solid yellow; */
     width: 100%;
@@ -190,6 +190,10 @@ form p {
 .container-footer p {
     color: rgb(0, 0, 0);
     margin-right: 9.75em;
+}
+
+.container-footer2 p {
+    color: rgb(0, 0, 0);
 }
 
 .section .container-barang {
@@ -245,7 +249,7 @@ table.tabel {
     text-align: center;
 }
 
-.tombol4{
+.tombol4 {
     width: 15%;
     padding: 10px;
     border-radius: 5px;
@@ -254,12 +258,12 @@ table.tabel {
     display: inline-block;
     text-align: center;
     background-color: #0ab4f2;
-    margin-top:10px;
+    margin-top: 10px;
 }
 
-.tombol4 a{
+.tombol4 a {
     text-decoration: none;
-    color:black;
+    color: black;
 }
 
 .tombol2,
@@ -297,30 +301,30 @@ table.tabel {
     margin: 1px;
 }
 
-.tombol-tambahKeranjang{
-    display:flex;
+.tombol-tambahKeranjang {
+    display: flex;
     align-items: center;
     align-content: center;
     background-color: #17D7A0;
-    border:none;
+    border: none;
     padding: 10px 0px 10px 10px;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
-    color:white;
+    color: white;
     font-size: 120%;
-    width:65%;
-    margin:auto;
+    width: 65%;
+    margin: auto;
 }
 
-.buttonTambah{
-    display:flex;
-    background-color:#17D7A0;
-    border:none;
-    color:white;
-    cursor:pointer;
+.buttonTambah {
+    display: flex;
+    background-color: #17D7A0;
+    border: none;
+    color: white;
+    cursor: pointer;
     font-size: 80%;
-    margin:auto;
+    margin: auto;
 }
 
 .tabel .opsi {
@@ -364,46 +368,50 @@ table.tabel {
 /* css buat input  */
 
 .form-input {
-	width: 100%;
+    width: 100%;
 }
 
 .form-input label {
-	display: block;
-	margin-top: 20px;
+    display: block;
+    margin-top: 20px;
 }
 
 .form-input label>span {
-	float: left;
-	width: 250px;
+    float: left;
+    width: 250px;
 }
 
 .form-input .input-field,
 .search {
-	width: 50%;
-	height: 40px;
-	border-radius: 5px;
-	box-sizing: border-box;
-	outline: none;
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
 }
 
 .submit {
-	background-color: #32C1CD;
+    background-color: #32C1CD;
     display: flex;
-	margin-top: 10px;
-	border-radius: 5px;
-	box-shadow: 0 4px 10px 0 rgb(255, 255, 255);
-	padding: 10px;
-	color: white;
-    border:none;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px 0 rgb(255, 255, 255);
+    padding: 10px;
+    color: white;
+    border: none;
     cursor: pointer;
 }
 
 button i {
-	padding-right: 10px;
+    padding-right: 10px;
 }
 
-.row .submit .fa-customize{
-    margin-top:3px;
+.row {
+    margin-top:10px;
+}
+
+.row .submit .fa-customize {
+    margin-top: 3px;
 }
 
 /* profile */
@@ -419,71 +427,73 @@ button i {
     clear: both;
 }
 
-.box-profile{
+.box-profile {
     display: flex;
     flex-direction: row;
     align-items: center;
     align-content: center;
 }
 
-.photo-profile{
+.photo-profile {
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
     /* border: 1px solid black; */
-    width:50%;
+    width: 50%;
 }
 
-.photo-profile .photo{
+.photo-profile .photo {
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
 }
 
-#input-photo{
-    display:none;
+#input-photo {
+    display: none;
 }
 
-.label-input-photo{
+.label-input-photo {
     cursor: pointer;
-    display:flex;
+    display: flex;
     background-color: #049DD9;
-    border-radius:5px;
-    color:white;
-    padding:10px;
-    margin-top:10px;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
     text-align: center;
     align-items: center;
     justify-content: center;
 }
 
-.photo img{
+.photo img {
     display: flex;
-    width:200px;
+    width: 200px;
     clip-path: circle();
 }
 
-.form-input .submit .fa-customize{
-    margin-top:3px;
+.form-input .submit .fa-customize {
+    margin-top: 3px;
 }
 
-.opsi .form-control1, .opsi .form-control2{
-    color:white;
+.opsi .form-control1,
+.opsi .form-control2 {
+    color: white;
     border: none;
-    padding:10px;
-    border-radius:5px;
+    padding: 10px;
+    border-radius: 5px;
     cursor: pointer;
 }
-.opsi .form-control1{
+
+.opsi .form-control1 {
     background-color: #17D7A0;
 }
 
-.opsi .form-control2{
-    background-color:#FF5C58;
+.opsi .form-control2 {
+    background-color: #FF5C58;
 }
 
-.photo .fa-customize{
-    margin-top:3px;
+.photo .fa-customize {
+    margin-top: 3px;
 }

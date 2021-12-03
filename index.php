@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/hias.css">
     <link href="https://drive.google.com/uc?export=view&id=1DkxJAKaJbRUKbVZbg6W79F9mS_oVcAar" rel="shortcut icon">
-    <title>Login | Himastar</title>
+    <title>Login | Toserba Himastar</title>
 </head>
 
 <body>
