@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $koneksi = mysqli_connect("localhost", "root", "", "db_toserba");
  
 if (isset($_POST['submit'])) {

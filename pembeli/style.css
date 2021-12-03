@@ -450,10 +450,13 @@ button i {
     cursor: pointer;
     display:flex;
     background-color: #049DD9;
-    border-radius:5px ;
+    border-radius:5px;
     color:white;
     padding:10px;
     margin-top:10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .photo img{
@@ -479,4 +482,8 @@ button i {
 
 .opsi .form-control2{
     background-color:#FF5C58;
+}
+
+.photo .fa-customize{
+    margin-top:3px;
 }

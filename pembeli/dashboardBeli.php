@@ -1,4 +1,5 @@
 <?php
+session_start();
 $koneksi = mysqli_connect("localhost", "root", "", "db_toserba");
 
 $result = mysqli_query($koneksi, "SELECT * FROM barang INNER JOIN jenis_barang ON jenis_barang.id_jenis = barang.jenis_barang");

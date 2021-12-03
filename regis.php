@@ -1,7 +1,7 @@
-<?php
+<?php 
 
-$koneksi = mysqli_connect("localhost", "root", "", "db_toserba");
-
+$koneksi = mysqli_connect("localhost","root","","db_toserba");
+ 
 if (isset($_POST['submit'])) {
     $nama        = $_POST['nama'];
     $noTelp      = $_POST['noTelp'];
@@ -10,27 +10,34 @@ if (isset($_POST['submit'])) {
     $password    = md5($_POST['password']);
     $confirmPass = md5($_POST['confirmPass']);
     $syaratPass = $_POST['password'];
-    $karakter   = preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/", $syaratPass);
+    $karakter   = preg_match("/^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{6,}$/", $syaratPass);
 
-    if (strlen($syaratPass) >= 6 && $karakter) {
+    // $gambar = $_FILES['gambar']['name'];	
+    
+    if ( strlen($syaratPass) >= 6 && $karakter)
+    {
         if ($password == $confirmPass) {
             $sqlQuery = "SELECT * FROM pembeli WHERE username='$username'";
             $result = mysqli_query($koneksi, $sqlQuery);
             if (mysqli_num_rows($result) == 0) {
-                $sql = "INSERT INTO pembeli (nama_pembeli, no_hp, alamat, username, password) VALUES ('$nama', '$noTelp', '$alamat', '$username', '$password')";
+                
+                    $namaFile = 'logoHimastar.png';
+                $sql = "INSERT INTO pembeli (nama_pembeli, no_hp, alamat, username, password,gambar) VALUES ('$nama', '$noTelp', '$alamat', '$username', '$password','$namaFile')";
                 $result = mysqli_query($koneksi, $sql);
                 echo "<script>alert('Registrasi berhasil!')</script>";
             } else {
                 echo "<script>alert('Username yang digunakan Sudah Terdaftar. Silahkan gunakan Username yang lain')</script>";
             }
-        } else {
+        }
+        else {
             echo "<script>alert('Password dan Confirm Password Tidak Sama')</script>";
         }
-    } else {
+    }
+    else{
         echo "<script>alert('Syarat Password Tidak Terpenuhi.')</script>";
     }
 }
-
+ 
 ?>
 
 <!DOCTYPE html>
